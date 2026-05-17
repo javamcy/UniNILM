@@ -1,5 +1,5 @@
 """
-相对于v2版本修改了NILMDataset类，BiMamba类，训练函数的数据加载部分和train_model中的数据迭代
+相对于v2版本修改了NILMDataset类，BiMamba类(即是我们的UniNILM方法)，训练函数的数据加载部分和train_model中的数据迭代
 目的是引入真正的Day-type gating门控机制
 """
 
