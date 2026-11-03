@@ -95,7 +95,7 @@ Optional arguments: `--methods` (subset of method names), `--prefix` (log prefix
 
 ## How to Run
 
-**Dependencies.** Python 3.10+, PyTorch (CUDA recommended), NumPy, Pandas, Matplotlib. `mamba_ssm` is optional and only required for Mamba2NILM; the other models run without it.
+**Dependencies.** Python 3.10+, PyTorch (CUDA recommended), NumPy, Pandas, Matplotlib, and `mamba_ssm` (required by the BiMamba and Mamba2NILM models).
 
 **Data.** Dataset files are not distributed with this repository. Place the aligned CSVs under `data/`, or point the environment variables to them:
 
@@ -122,6 +122,6 @@ python evaluation/cross_rerun.py
 ## Notes
 
 1. Per-appliance threshold calibration (grid 5–100 W, step 5 W) is performed on the **validation split only**; the test split is used solely to report the metrics for the selected thresholds.
-2. Seq2Point predicts the value at the center of the input window, so it is evaluated at the window center (stride 60); this sampling density differs from that of the full-window methods.
-3. In `cross_rerun.py`, `train_size = 40320` (the first 4 weeks of House 5) is used to compute normalization statistics; setting it to 0 produces NaN inputs.
+2. Seq2Point predicts the value at the center of the input window, so it is evaluated at the window center (stride 60).
+3. In `cross_rerun.py`, `train_size = 40320` corresponds to the first 4 weeks of House 5 used for normalization statistics.
 4. All scripts default to CPU when CUDA is unavailable, but full training runs are intended for a GPU.
